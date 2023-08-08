@@ -1,10 +1,194 @@
+/* CSS for Popup */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus{
+  outline: none;
+}
+
+/* Additional Styles */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Set minimum height of the body */
+  position: relative; /* Add this to make relative positioning work for the footer */
+}
+
+/* body{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ff7a2d;
+  font-family: 'roboto', sans-serif;
+} */
+
+.miniheading {
+  text-align: center;
+  justify-content: center;
+}
+
+.gallery{
+  /* width: 80%; */
+  height: 90vh;
+  max-width: 1600px;
+  max-height: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+  border: 2px red;
+  overflow: auto;
+}
+
+.gallery-image{
+  width: 30%;
+  height: calc(50% - 20px);
+  min-width: 300px;
+  min-height: 200px;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.gallery-image img {
+  transition: transform 0.9s ease;
+}
+
+.gallery-image:hover img {
+  transform: scale(1.2);
+}
+
+
+.image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 1s;
+}
+
+/* popup */
+
+.popup{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 80%;
+  max-width: 1600px;
+  height: 90vh;
+  max-height: 800px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  overflow: hidden;
+  transition: 1s;
+  opacity: 0;
+}
+
+.popup.active{
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.popup.active .close-btn,
+.popup.active .image-name,
+.popup.active .index,
+.popup.active .large-image,
+.popup.active .arrow-btn{
+  opacity: 1;
+  transition: opacity .5s;
+  transition-delay: 1s;
+}
+
+.top-bar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 300;
+}
+
+.image-name{
+  opacity: 0;
+}
+
+.close-btn{
+  opacity: 0;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f00;
+  cursor: pointer;
+}
+
+.arrow-btn{
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.left-arrow{
+  left: 10px;
+}
+
+.right-arrow{
+  right: 10px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.arrow-btn:hover{
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.index{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 80px;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+}
+
+.large-image{
+  margin-top: 5%;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  opacity: 0;
+}
+
 /* CSS for Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #333;
-  padding: 20px;
+  padding: 4px;
 }
 
 .logo {
@@ -68,7 +252,7 @@ header {
 /* CSS for Moving images (marquee) */
 .marquee-container {
   position: absolute;
-  top: 0;
+  top: -5px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -76,19 +260,7 @@ header {
   overflow: hidden;
 }
 
-.marquee-images {
-  display: flex;
-  width: 250px;
-  animation: marqueeAnimation 30s linear infinite;
-}
-
-.marquee-images img {
-  width: 100%;
-  height: auto;
-  margin-right: 20px;
-}
-
-@keyframes marqueeAnimation {
+@keyframes marquee {
   0% {
     transform: translateX(100%);
   }
@@ -96,6 +268,22 @@ header {
     transform: translateX(-100%);
   }
 }
+
+.marquee-images {
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-images img {
+  display: inline-block;
+  height: 100%;
+  animation: marquee 10s linear infinite;
+  position: relative;
+}
+
 
 /* CSS for Pseudocolor grids */
 .pseudocolor-grids {
@@ -128,6 +316,8 @@ header {
   text-align: center;
 }
 
+
+
 .landing-content h2 {
   font-size: 36px;
   margin-bottom: 20px;
@@ -138,23 +328,25 @@ header {
 }
 
 /* CSS for Image cards */
+/* CSS for Image cards */
 #image-cards {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Align items at the top */
   flex-wrap: wrap;
   padding: 40px 0;
 }
 
 .card {
+  position: relative;
   width: 300px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   margin: 20px;
   text-align: center;
-  transition: transform 0.3s ease;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .card img {
@@ -162,28 +354,124 @@ header {
   height: auto;
 }
 
+
 .card h3 {
   margin: 20px;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-}
-
 /* CSS for Contact information */
-footer {
-  background-color: #333;
-  color: #fff;
+#contact {
+  background-color: #f9f9f9;
   padding: 40px 0;
   text-align: center;
+  
+  bottom: 0; /* Position at the bottom */
+  left: 0;
+  width: 100%;
 }
 
-.contact-content h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+.contact-content {
+  max-width: 960px;
+  margin: 10px;
+  padding: 5px;
+  border: 2px red;
 }
 
-.contact-content p {
-  font-size: 18px;
-  margin-bottom: 10px;
+
+
+
+/* button styling */
+
+button {
+  margin: 20px;
 }
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+/* 12 */
+.btn-12{
+  position: relative;
+  right: 20px;
+  bottom: 20px;
+  border:none;
+  box-shadow: none;
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  -webkit-perspective: 230px;
+  perspective: 230px;
+}
+.btn-12 span {
+  background: rgb(0,172,238);
+background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+  display: block;
+  position: absolute;
+  width: 130px;
+  height: 40px;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  border-radius: 5px;
+  margin:0;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.btn-12 span:nth-child(1) {
+  box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+  -webkit-transform-origin: 50% 50% -20px;
+  -moz-transform-origin: 50% 50% -20px;
+  transform-origin: 50% 50% -20px;
+}
+.btn-12 span:nth-child(2) {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  -webkit-transform-origin: 50% 50% -20px;
+  -moz-transform-origin: 50% 50% -20px;
+  transform-origin: 50% 50% -20px;
+}
+.btn-12:hover span:nth-child(1) {
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+.btn-12:hover span:nth-child(2) {
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+ color: transparent;
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+}
+
