@@ -121,4 +121,14 @@ const regex = /\bDog\b/gi;
 
 console.log("paragraph.search(regex) : " + paragraph.search(regex)); //  -> 40
 
+//---------------------------------------------------------------------
+
+/*
+Questions:
+Try to replace “dog” with “cat” from   Sample String →  “ he quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?”
+Write a function to convert string to lowercase;
+Check “Fox” is includes .  Sample String →  “ he quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?”
+Check String end with “?”  . Sample String →  “ he quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?”
+Extract Amount from string → “ I bought car at ₹ 550000 “
+*/
 
