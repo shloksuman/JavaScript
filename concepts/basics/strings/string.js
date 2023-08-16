@@ -41,7 +41,84 @@ const message = "First line. \nNew line created. \tTab space by slash-t";
 
 console.log(myname);
 console.log(str);
+// for(let i=0 ; i< str.length ; i++){
+//     console.log(`str[${i}] = ${str[i]}`) ;
+// }
+console.log("str[2] = " + str[2]);
+console.log(`str[6] = ${str[6]}`);
 console.log(quotes);
 console.log(escapee);
 console.log(message);
+
+
+//--------------------------------------------------
+
+// FUNCTIONS
+
+console.log(str);
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
+
+const extrachar = "   I am having      extra spaces   " ;
+console.log(extrachar.trim()); //trims starting spaces of string
+console.log(extrachar.trimEnd());
+
+console.log("str length = " + str.length);
+
+
+//ASCII CODES
+
+console.log("str[0] char code : " + str.charCodeAt(str[0]));
+
+// IMPORTANT 
+// REPLACE FUNCTION
+
+const reply = "Rahul is good. Rahul is helpful. Rahul loves Anjali." ;
+
+console.log("reply : " + reply);
+
+console.log("-----------AFTER REPLACING RAHUL BY REPLACEALL--------------") ;
+
+console.log("reply : " + reply.replaceAll("Rahul" , "Vicky")); //CASE SENSITIVE
+
+console.log(reply.split(" "));
+//output (9) ['Rahul', 'is', 'good.', 'Rahul', 'is', 'helpful.', 'Rahul', 'loves', 'Anjali.']
+//splits the string into array wherever it contains space
+
+console.log(reply.split("u"));
+//output (5) ['Rah', 'l is good. Rah', 'l is helpf', 'l. Rah', 'l loves Anjali.']
+//splits as soon as it detects u letter and stores that much part in array
+
+
+//CONCATENATION
+console.log(reply.concat("Tina loves Rahul."));
+console.log(reply + "Tina loves Rahul.");
+
+
+//SUBSTRING - PART OF STRING CAN BE PRINTED OR USED
+
+console.log(reply.substring(3,15));
+console.log(reply.substring(30)); // removes first 30 characters
+
+console.log("does sentence start with Rahul : " + reply.startsWith("Rahul")); 
+// startswith returns a BOOLEAN VALUE
+console.log("does sentence include word 'loves' : " + reply.includes("loves"));
+
+console.log("does sentence ends with word 'Vicky' : " + reply.endsWith("Vicky"));
+
+console.log("index of good : " + reply.indexOf("good"));
+
+console.log("last index of letter i : " + reply.lastIndexOf("i"));
+
+//LEARN REGEX
+
+// Search string
+const paragraph =
+  "The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?";
+
+// Any character that is not a word character or whitespace
+const regex = /\bDog\b/gi;
+
+console.log("paragraph.search(regex) : " + paragraph.search(regex)); //  -> 40
+
 
