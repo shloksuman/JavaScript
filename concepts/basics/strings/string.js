@@ -132,3 +132,27 @@ Check String end with “?”  . Sample String →  “ he quick brown fox jumps
 Extract Amount from string → “ I bought car at ₹ 550000 “
 */
 
+//------------question 1
+
+// Try to replace “dog” with “cat” from   Sample String →  “ he quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?”
+
+const para =  "he quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?" ;
+
+console.log(para.replaceAll("dog" , "cat"));
+
+//question 2
+console.log(para.toLowerCase());
+
+//question 3
+/* Check “Fox” is includes .  Sample String →  “ he quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?” */
+console.log("para = " + para);
+console.log("does para include Fox : " + para.includes("Fox")); //CASE SENSITIVE, SO RETURNS FALSE
+
+//question 5
+// Extract Amount from string → “ I bought car at ₹ 550000 “
+
+const sample = "I bought car at ₹ 550000" ;
+// const result = sample.split(" ");
+// console.log(result[5]);
+const result2 = sample.split(" ")[5];
+console.log(result2);
