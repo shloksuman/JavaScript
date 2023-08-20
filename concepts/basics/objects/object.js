@@ -62,5 +62,83 @@ let person = {
     console.log("full adhaar card name : " , fullName2);
     console.log("village : " , adhaarCardData.address.village); //this is how we access object inside object
     
+    //-----------------------------------------
+
+    // constructor function is another way of creating Object.
+// Rule -> Constructor Function Starts with capital letter 
+
+// class Person {
+//     constructor(firstName, lastName, age) {
+//         // this === Person 
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.age = age;
+//         this.fullName = function () {
+//             return this.firstName + " " + this.lastName;
+//         };
+//     }
+// }
+
+// constructor function is another way of creating Object.
+// Rule -> Constructor Function Starts with capital letter 
+
+function Person(firstName,lastName,age) {
+    // this === Person 
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.fullName = function() {
+    return this.firstName + " " + this.lastName;
+        };
+    }
     
     
+    // constructor function starts with new keyword 
+    const myFather = new Person("John", "Doe", 50);
+    console.log(Person); //this constructor object is logged with it's name Person
+    // but in case of normal object, only the key -value pairs are logged
+
+
+    //-----------------------------------------
+
+
+    // Object is reference data type 
+// what is reference data type ?
+/* Answer : Reference data type is a data type that holds a
+reference to an object in memory, rather than holding its value directly */
+
+// lets see with example 
+
+// const obj1 = {title:"obj1"} ;// allocate space in memory + address
+// const obj2 = obj1;
+// when we assign obj1 to obj2 
+// no new space created in memory
+// only obj2 holds address of obj1
+
+// obj2.title = "obj2";
+// when we try to change title of obj2 
+// title of obj1 
+
+// console.log(obj1.title); // output : obj2
+
+// how to avoide reference 
+// and  create deep clone
+
+
+// we can use spread operator
+
+const obj1 = {title:"obj1"} 
+const obj2 = {...obj1}; 
+//now both obj1 and obj2 have got separate memory 
+obj2.title = "this is another one" ;
+console.log("obj1 : " , obj1);
+console.log("obj2 : " , obj2);
+
+
+//------------
+//traversing the elements of the objects
+
+console.log("Below it shows let key in adhaarcarddata key list");
+for(let key in adhaarCardData){ // 'replace 'key' with any word , it STILL WORKS'
+    console.log(key);
+}
