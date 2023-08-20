@@ -200,7 +200,117 @@ const entries = new Map([
   ['baz', 42]
 ]);
 
+console.log(entries);
+
 const obj = Object.fromEntries(entries);
 
 console.log(obj);
 // Expected output: Object { foo: "bar", baz: 42 }
+
+// Object.keys
+// convert object key into array
+const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+console.log(object1);
+
+console.log(Object.keys(object1));
+// Expected output: Array ["a", "b", "c"]
+
+// Object.values
+// convert object value into array
+
+
+console.log(Object.values(object1));
+// Expected output: Array ["somestring", 42, false]
+
+
+// hasOwnProperty()
+// check key exist or not
+
+object1.property1 = 42;
+
+console.log("has property1 =42 or not : " , object1.hasOwnProperty('property1'));
+// Expected output: true
+
+console.log("has property toString or not: " , object1.hasOwnProperty('toString'));
+// Expected output: false
+
+
+//---------------------------------------------------
+
+// Question 1
+// Upvotes vs Downvotes
+// Given an object containing counts of both upvotes and downvotes, return what vote count should be displayed.
+//  This is calculated by subtracting the number of downvotes from upvotes.
+
+
+let votes = {
+  upvoteCount:0,
+  downVoteCount:5
+};
+let votes2 = {
+  upvoteCount:200,
+  downVoteCount:5
+};
+let votes3 = {
+  upvoteCount:2,
+  downVoteCount:2
+};
+
+const getVoteCount = (data) => {
+    return data.upvoteCount - data.downVoteCount ;
+}
+
+console.log("sample 1 : " , getVoteCount(votes));
+console.log("sample 2 : " , getVoteCount(votes2));
+console.log("sample 3 : " , getVoteCount(votes3));
+
+// Sample Data
+// getVoteCount({ upvotes: 13, downvotes: 0 }) ➞ 13
+
+// getVoteCount({ upvotes: 2, downvotes: 33 }) ➞ -31
+
+// getVoteCount({ upvotes: 132, downvotes: 132 }) ➞ 0
+
+
+// Question 2
+// 50-30-20 Strategy
+// The 50-30-20 strategy is a simple way to budget, which involves spending 50% of after-tax income on needs,
+//  30% after tax income on wants, and 20% after-tax income on savings or paying off debt.
+// Given the after-tax income as ati, what you are supposed to do is to make a function 
+// that will return an object that shows how much a person needs to spend on needs, wants, and savings.
+
+const income1 = 10000 ;
+
+// const fiftythirdtwenty = (income) => { //THIS WORKS FINE
+//   let needs = income*0.50;
+//   let wants = income*0.30;
+//   let savings = income*0.20;
+//   const resultObj= {
+//     needs1 : needs ,
+//     wants1 : wants ,
+//     savings1 : savings
+//   };
+//   return resultObj;
+// }
+
+const fiftythirdtwenty = (income) => { //THIS WORKS FINE TOO
+  return resultObj= {
+    needs1 : income*0.50 ,
+    wants1 : income*0.30 ,
+    savings1 : income*0.20
+  };
+ // return resultObj;
+}
+
+console.log("for : " , income1 , " we have : " , fiftythirdtwenty(income1));
+
+const income2 = 50000;
+const income3 = 13450;
+
+console.log("for : " , income2 , " we have : " , fiftythirdtwenty(income2));
+console.log("for : " , income3 , " we have : " , fiftythirdtwenty(income3));
