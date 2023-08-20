@@ -142,3 +142,65 @@ console.log("Below it shows let key in adhaarcarddata key list");
 for(let key in adhaarCardData){ // 'replace 'key' with any word , it STILL WORKS'
     console.log(key);
 }
+
+//--------------------------------------
+// now converting the OBJECT into MAP which contains key value pairs in form of small arrays
+
+// console.log(Object.entries(adhaarCardData));
+
+//output
+// (6) [Array(2), Array(2), Array(2), Array(2), Array(2), Array(2)]
+// 0
+// : 
+// (2) ['firstName', 'Rohan']
+// 1
+// : 
+// (2) ['lastName', 'Kumar']
+// 2
+// : 
+// (2) ['dob', '01-01-2000']
+// 3
+// : 
+// (2) ['adhaarNo', 479382749328749]
+// 4
+// : 
+// (2) ['address', {…}]
+// 5
+// : 
+// (2) ['fullName', ƒ]
+// length
+// : 
+// 6
+// [[Prototype]]
+// : 
+// Array(0)
+
+//======================
+//now traversing over the array obtained from Object
+
+for(let data of Object.entries(adhaarCardData)){
+  console.log(data);
+}
+
+//the above returns all the arrays only , earlier we got the output in a map form, here we exclusively printed
+//all the arrays only
+
+//now printing the value and key pairs
+
+for(let [key,value] of Object.entries(adhaarCardData)){
+  console.log(`key : ${key} , value : ${value} `);
+}
+
+
+// Object.fromEntries
+// Covert Map data type to object 
+
+const entries = new Map([
+  ['foo', 'bar'],
+  ['baz', 42]
+]);
+
+const obj = Object.fromEntries(entries);
+
+console.log(obj);
+// Expected output: Object { foo: "bar", baz: 42 }
