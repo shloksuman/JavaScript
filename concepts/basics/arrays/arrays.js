@@ -161,6 +161,45 @@ console.log("array b : " , b);
 console.log("array c ( a+b) : " , c);
 
 
+// Array.prototype.reduce()
+// it will combine array // based on some operation 
+
+const array4 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array4.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+
+console.log("array4 : " , array4);
+
+console.log(sumWithInitial);
+// Expected output: 10
+
+const factorial = array4.reduce((prevValue , currValue)=>{
+    return prevValue*currValue;
+}, 1);
+
+console.log("product of elements of array4 is : " , factorial);
+
+
+// sort
+
+// const array1 = [ 1,2,5, 11, 13,4,18,44] ;
+
+console.log(array1.sort((a,b)=> a-b )); // ascending order
+console.log(array1.sort((a,b)=> b-a )); // descending order
+
+
+// JOIN
+
+const ele = ["R", "A", "H", "U" , "L"];
+console.log("elements in ele : " , ele);
+
+console.log(ele.join("-"));
+
 
 
 
