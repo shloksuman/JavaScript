@@ -84,13 +84,84 @@ days2.splice(0,2); // deleted element from index o to 1
 console.log(days2);
 
 
-days2.push("sunday" , "monday" , "tuesday" , "wednes"  , " thurs" , "fri" , "sat");
+days2.push("sunday" , "monday" , "tuesday" , "wednesday"  , " thursday" , "friday" , "saturday");
 
 const sliceddays= days2.slice(1,4); //takes values from index 1 to 3 and stores in slicedays
 console.log("NOTE : slice function doesn't affect the original array");
 
 console.log("sliced array " ,sliceddays);
 console.log("original days2 array : " , days2);
+
+
+const filterdays = days2.filter((value, index, array)=>{
+    return value.length>6 ;
+});
+
+console.log("filtered days > 6 : " , filterdays);
+
+// for (let i = 0; i < days2.length; i++) {
+//     let day = days2[i];
+//     console.log(`Today is ${day}`);
+//   }
+
+//  using FOR OF LOOP
+// for(let day of days2){
+//     console.log(`Today is ${day}`);
+// }
+
+// for each loop
+
+// days2.forEach((day, index)=>{
+//     console.log(`Today is ${day} , ${index}`);
+// });
+
+// we can use map instead of forEach to store the fetched values inside another variable
+const newDays = days2.map((day, index)=>{
+    console.log(`Today is ${day} , ${index}`);
+
+    return day[0];
+});
+
+console.log(newDays);
+
+
+// FInd
+
+const array1 = [ 1,2,5, 11, 13,4,18,44] ;
+
+const found  = array1.find((value, i , obj)=>{
+    return value > 10;
+});
+
+console.log("array1 : " , array1);
+console.log("print found values > 10 in array 1 :" ,  found); //returns only one value that satisfies the condition
+
+//index 
+
+const index = array1.indexOf(18);
+console.log("index of 18 : " , index);
+
+// find index
+
+const findind = array1.findIndex((value)=>{
+    if(value%2===0){
+        return value;
+    }
+});
+
+console.log("findindex : " , findind); // this also returns only single value that satisfies the condition
+
+const a = [ 1,3,5,7];
+const b = [2,4,6,8];
+
+const c = a.concat(b);
+// const c = a.concat(b,a,b,a,a,a,b) we can add endless number of array
+console.log("array a : " , a);
+console.log("array b : " , b);
+console.log("array c ( a+b) : " , c);
+
+
+
 
 
 
