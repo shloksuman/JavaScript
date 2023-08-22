@@ -314,3 +314,4 @@ const income3 = 13450;
 
 console.log("for : " , income2 , " we have : " , fiftythirdtwenty(income2));
 console.log("for : " , income3 , " we have : " , fiftythirdtwenty(income3));
+console.log(fiftythirdtwenty(income3));
