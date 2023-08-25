@@ -201,6 +201,132 @@ console.log("elements in ele : " , ele);
 console.log(ele.join("-"));
 
 
+// HOMEWORK QUESTION
+
+
+/*
+question 1
+Concatenate Variable Number of Input Arrays
+Create a function that concatenates n input arrays, where n is variable.
+@helen_yu
+// examples 
+concat([1, 2, 3], [4, 5], [6, 7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+concat([1], [2], [3], [4], [5], [6], [7]) ➞ [1, 2, 3, 4, 5, 6, 7]
+concat([1, 2], [3, 4]) ➞ [1, 2, 3, 4]
+concat([4, 4, 4, 4, 4]) ➞ [4, 4, 4, 4, 4]
+
+*/
+
+
+function concat(...num){
+    console.log(num.flat(1));
+
+    return num.flat(1);
+}
+
+concat([1,2,3] , [11,12] , [55,78]);
+
+
+
+//-------------------------------------
+
+/*
+Question 2
+Store Payment
+Given a total due and an array representing the amount of change in your pocket.
+determine whether or not you are able to pay for the item.
+Change will always be represented in the following order: ₹1 coin,  ₹2 coin, ₹5 coin, ₹10 coin
+changeEnough([25, 20, 5, 5], 120) should yield true
+@helen_yu
+
+since having 25 → ₹1 coin,  20 → ₹2 coin,  5 → ₹5 coin and 5 → ₹10 coin 
+gives you 25 + 40 + 25 + 50 = 140
+ 
+//examples
+
+changeEnough([10, 6, 5, 2], 69) ➞ false
+changeEnough([20, 10, 10, 5], 100) ➞ true
+*/
+
+function changeEnough(arr, value){
+    let sum= arr[0]*1+arr[1]*2+arr[2]*5+arr[3]*10;
+    if(sum>=value){
+        return true;
+    }
+    else return false;
+}
+
+console.log(changeEnough([10, 6, 5, 2], 69));
+console.log(changeEnough([20, 10, 10, 5], 100));
+
+
+/*
+Question 3
+Factorial of number using reduce method
+factorial of 4 = 1*2*3*4 = 24
+// examples
+
+factorial(1) -> 1
+factorial(2) -> 2
+factorial(3) -> 6
+factorial(4) -> 24
+*/
+
+const a1 = 1;
+const ar1 = [];
+for(let i=1 ; i<=a1 ; i++){
+    ar1.push(i);
+}
+
+const factorial2 = ar1.reduce((prevValue , currValue)=>{
+    return prevValue*currValue;
+}, 1);
+
+console.log("product of elements of ar1 is : " , factorial2);
+
+const a2 = 2;
+const ar2 = [];
+for(let i=1 ; i<=a2 ; i++){
+    ar2.push(i);
+}
+
+const factorial3 = ar2.reduce((prevValue , currValue)=>{
+    return prevValue*currValue;
+}, 1);
+
+console.log("product of elements of ar2 is : " , factorial3);
+
+const a3 = 5;
+const ar3 = [];
+for(let i=1 ; i<=a3 ; i++){
+    ar3.push(i);
+}
+
+const factorial4 = ar3.reduce((prevValue , currValue)=>{
+    return prevValue*currValue;
+}, 1);
+
+console.log("product of elements of ar3 is : " , factorial4);
+
+
+/* 
+Question 4
+Find the Second Largest Number
+Create a function that takes an array of numbers and returns the second largest
+ number. @matt
+
+// examples
+secondLargest([10, 40, 30, 20, 50]) ➞ 40
+secondLargest([25, 143, 89, 13, 105]) ➞ 105
+secondLargest([54, 23, 11, 17, 10]) ➞ 23
+*/
+
+function secondLargest(numbers){
+    return numbers.sort((a , b ) => b-a)[1]; //sorts in descending order 
+    //then returns the element at index 1 which is the second largest element
+}
+
+console.log(secondLargest([10, 40, 30, 20, 50]));
 
 
 
