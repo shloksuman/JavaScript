@@ -72,3 +72,37 @@ console.log("att4 data-foot : " , att4);
 
 // always use data-new format "new" here is customizable , use any other 
 // this is used while making user-defined attributes
+
+// More Operations we can perform on element nodes
+// createElement(”div”) → for  creating new element we use this syntax
+// createTextNode(”Hello”) →  for creating text element we use this syntax
+// append() → for attaching element at end of other element ( inside )
+// prepend() → for attaching element at start of other element ( inside )
+// before() → for attaching element , before other element
+// after() → for attaching element , after other element
+// replaceWith() → for replacing element with other element
+// remove() → for removing element 
+// classlist.remove(”name”) → removes class
+// classlist.add(”name”) → add class
+// classlist.toggle(”name”) → if exist then remove , if not exist then adds
+ 
+// innerHtml() → for adding html inside other element
+// outerHtml() → for adding html outside 
+
+const heading = document.createElement("h1");
+const text = document.createTextNode("\nThis is inserted using append , and created by createtextnode");
+const text2 = document.createTextNode("\ntext 2 is prepend");
+heading.append(text);
+heading.prepend(text2);
+heading.append("\ni am the last one");
+console.log(heading);
+
+//now adding the above created elements inside the main inner html file
+
+document.getElementsByTagName("footer")[0].append(heading);
+
+function myFunction(){
+    alert("You have clicked the button!")
+}
+
+
