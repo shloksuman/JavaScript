@@ -101,8 +101,19 @@ console.log(heading);
 
 document.getElementsByTagName("footer")[0].append(heading);
 
-function myFunction(){
-    alert("You have clicked the button!")
+// function myFunction(){
+//     alert("You have clicked the button!")
+// }
+
+
+const btn = document.querySelector("button");
+
+function random(number) {
+  return Math.floor(Math.random() * (number + 1));
 }
 
+btn.addEventListener("click", () => {
+  const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+  document.body.style.backgroundColor = rndCol;
+});
 
