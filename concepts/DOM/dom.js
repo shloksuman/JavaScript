@@ -67,5 +67,8 @@ console.log("att2 demp : " , att2);
 const att3 = document.querySelector("footer").setAttribute("data-foot" , 1);
 console.log("added data-foot using setAttribute : ",document.querySelector("footer"));
 
+const att4 = document.querySelector("footer").dataset.foot ;
+console.log("att4 data-foot : " , att4);
 
-
+// always use data-new format "new" here is customizable , use any other 
+// this is used while making user-defined attributes
