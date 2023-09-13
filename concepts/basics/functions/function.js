@@ -95,9 +95,9 @@ function generateTable(num){
     }
 }
 
-const num1 = parseInt(prompt("Enter the value : "));
+// const num1 = parseInt(prompt("Enter the value whose table you want to see : "));
 
-generateTable(num1);
+// generateTable(num1);
 generateTable(16);
 generateTable(17);
 

@@ -51,8 +51,8 @@ function printAfter(){
     // console.log(`time input ${timeInput}`);
 
     setTimeout( ()=>{
-      console.log(`this button was clicked ${timeInput} ms ago OR this output is printed after that time`);
-    } , timeInput);
+      console.log(`this button was clicked ${timeInput/1000} seconds ago OR this output is printed after that time`);
+    } , timeInput );
 
 
 };
@@ -69,7 +69,7 @@ var secondButton = buttons[1]; //points to the index 1 of the buttons node list
 secondButton.addEventListener('click' , printAfter );
 
 
-console.log("helhl");
+console.log("--------------");
 
 // let interval = setInterval(sayHello , 500);
 
