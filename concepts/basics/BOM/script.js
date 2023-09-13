@@ -37,10 +37,31 @@ btn.innerHTML = "changed btn text through innerhtml in js file" ;
 // btn.addEventListener("click" , msg );  THIS WORKS TOO , JUST WRITE FUNCTION name msg  ... and NOT msg()
 
 
+var consoleDiv = document.getElementsByClassName('console');
+// console.log(consoleDiv);  //just checking
+
+
+
 function printMe(){
   var timeInput = prompt("enter the time (in milliseconds) after which the message is to be printed : ");
   console.log(`time input ${timeInput}`);
+  // consoleDiv.write("<br><h2>Time input ${timeInput}</h2>") ;
+  // consoleDiv.innerHTML += "<br><h2>Time input ${timeInput}</h2>" ;
+  // Get the `div` element with the class `console` //works
+  // var consolee = document.querySelector(".console"); //works
 
+  // Insert the HTML code for a new line
+  // consolee.innerHTML += "<h2>you called me</h2>";  //works
+
+  //--------------------------------------------------------
+  var consolee = document.querySelector(".console"); //works
+
+  console.log(consoleDiv);
+
+  // Insert the HTML code for a new line
+  // consoleDiv.innerHTML += "<h2>you called me</h2>";  // doesn't work
+
+  consolee.innerHTML += `<h2>Time input ${timeInput}</h2>` ;
 
   // setTimeout(msg , timeInput);
 

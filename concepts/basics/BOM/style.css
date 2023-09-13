@@ -21,3 +21,15 @@ nav a {
     text-decoration: none;
     color: white;
 }
+
+.flex-container {
+    display: flex;
+    background-color: DodgerBlue;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px 20px;
+    padding: 20px;
+    font-size: 30px;
+  }
