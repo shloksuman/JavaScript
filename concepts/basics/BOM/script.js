@@ -66,7 +66,14 @@ var secondButton = buttons[1]; //points to the index 1 of the buttons node list
 
 //now adding click event listener 
 
-secondButton.addEventListener('click' , printAfter );
+// https://stackoverflow.com/questions/51660145/double-click-not-working-when-chrome-web-inspector-open
+
+// It turns out that when you enable the "Toggle device toolbar" you lose the ability to double click when
+// Web Inspector is open. Turing the "Toggle device toolbar" feature back off allowed me to trigger "dblclick" events 
+// in the browser again
+
+secondButton.addEventListener("dblclick" , printAfter );
+// secondButton.addEventListener("click" , printAfter );
 
 
 console.log("--------------");
