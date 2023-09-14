@@ -74,9 +74,13 @@ function printMe(){
 function printAfter(){
     var timeInput = prompt("enter the time (in milliseconds) after which the message is to be printed : ");
     // console.log(`time input ${timeInput}`);
+    var sec = "second" ; 
+    if(timeInput>1000){
+      sec="seconds";     //MINOR CORRECTION. DISPLAYS x seconds if x is greater than 1 second
+    }
 
     setTimeout( ()=>{
-      console.log(`this button was clicked ${timeInput/1000} seconds ago OR this output is printed after that time`);
+      console.log(`this button was clicked ${timeInput/1000} ${sec} ago OR this output is printed after that time`);
     } , timeInput );
 
 
