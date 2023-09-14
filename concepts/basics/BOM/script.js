@@ -37,8 +37,12 @@ btn.innerHTML = "changed btn text through innerhtml in js file" ;
 // btn.addEventListener("click" , msg );  THIS WORKS TOO , JUST WRITE FUNCTION name msg  ... and NOT msg()
 
 
-var consoleDiv = document.getElementsByClassName('console');
+var consoleDiv = document.getElementsByClassName('output'); //NOT USEFUL
 // console.log(consoleDiv);  //just checking
+
+var consolee = document.querySelector(".output"); // USEFUL
+
+// QUERY SELECTOR  IS BETTER THAN getElement
 
 
 
@@ -54,9 +58,9 @@ function printMe(){
   // consolee.innerHTML += "<h2>you called me</h2>";  //works
 
   //--------------------------------------------------------
-  var consolee = document.querySelector(".console"); //works
+  // var consolee = document.querySelector(".output"); //works
 
-  console.log(consoleDiv);
+  // console.log(consoleDiv);
 
   // Insert the HTML code for a new line
   // consoleDiv.innerHTML += "<h2>you called me</h2>";  // doesn't work
@@ -104,3 +108,16 @@ console.log("--------------");
 // setTimeout(()=>{
 //   clearInterval(interval) ; // clear the setInterval
 // } , 5000);
+
+//--------------------------------------------------------
+
+// CREATING A CLEAR CONSOLE BUTTON WHICH CLEARS THE OUTPUT PRINTED TILL NOW
+
+var clearBtn = document.getElementById('clearConsole');
+// console.log(clearBtn);
+
+function clearConsole(){
+  consolee.innerHTML = "" ; //SETS THE VALUES INSIDE DIV WITH CLASS CONSOLE = NULL/EMPTY/ CLEARS THE DIV
+}
+
+clearBtn.addEventListener("click" , clearConsole);
