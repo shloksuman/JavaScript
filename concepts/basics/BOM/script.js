@@ -37,10 +37,13 @@ btn.innerHTML = "changed btn text through innerhtml in js file" ;
 // btn.addEventListener("click" , msg );  THIS WORKS TOO , JUST WRITE FUNCTION name msg  ... and NOT msg()
 
 
-var consoleDiv = document.getElementsByClassName('output'); //NOT USEFUL
-// console.log(consoleDiv);  //just checking
+var consoleDiv = document.getElementsByClassName('output'); //
+// console.log(consoleDiv);  //just checking   THIS RETURNS A COLLECTION OR ARRAY.
+// console.log(consoleDiv[0]);  //just checking TO ACCESS ARRAY ELEMENT, WRITE ARRAY[INDEX]  
 
 var consolee = document.querySelector(".output"); // USEFUL
+
+console.log(consolee);
 
 // QUERY SELECTOR  IS BETTER THAN getElement
 
@@ -125,3 +128,6 @@ function clearConsole(){
 }
 
 clearBtn.addEventListener("click" , clearConsole);
+
+console.log("line 129--------- below calling consoleDiv and consolee");
+
